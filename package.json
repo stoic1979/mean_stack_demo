@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/stoic1979/mean_stack_demo/issues"
   },
-  "homepage": "https://github.com/stoic1979/mean_stack_demo#readme"
+  "homepage": "https://github.com/stoic1979/mean_stack_demo#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3"
+  }
 }
