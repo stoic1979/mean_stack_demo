@@ -7,7 +7,7 @@
 module.exports = {
 
 
-	"database": "",
+	"database": "mongodb://navi:123@ds161121.mlab.com:61121/meandemodb",
 	"port": process.env.PORT || 3000,
 	"secretKey": "My-Secret-Key"
 
