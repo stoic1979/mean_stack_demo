@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/stoic1979/mean_stack_demo#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mongoose": "^4.10.4",
