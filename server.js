@@ -8,9 +8,16 @@ var config = require('./config');
 
 var app = express();
 
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
+
+
+app.get('/', function (req, res) {
+   	res.sendFile( __dirname + "/public/views/" + "index.html" );
+})
+
 
 
 var server = app.listen(config.port, function (err) {
