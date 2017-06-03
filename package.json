@@ -1,0 +1,20 @@
+{
+  "name": "mean_stack_demo",
+  "version": "1.0.0",
+  "description": "mean stack demo proj",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stoic1979/mean_stack_demo.git"
+  },
+  "author": "navi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stoic1979/mean_stack_demo/issues"
+  },
+  "homepage": "https://github.com/stoic1979/mean_stack_demo#readme"
+}
