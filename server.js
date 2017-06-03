@@ -1,9 +1,17 @@
+var express = require('express');
 var bodyParser = require('body-parser');
 var express = require('express');
+var morgan = require('morgan');
+
 var config = require('./config');
 
 
 var app = express();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(morgan('dev'));
+
 
 var server = app.listen(config.port, function (err) {
    

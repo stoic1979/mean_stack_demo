@@ -19,6 +19,7 @@
   "homepage": "https://github.com/stoic1979/mean_stack_demo#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "morgan": "^1.8.2"
   }
 }
