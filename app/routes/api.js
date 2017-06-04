@@ -116,7 +116,7 @@ module.exports = function(app, express) {
 
 		console.log("Got some request, validating token !");
 
-		var token = req.body.token || req.param('token') || req.handlers['x-access-token'];
+		var token = req.body.token || req.param('token') || req.headers['x-access-token'];
 
 		if(token) {
 
@@ -137,6 +137,10 @@ module.exports = function(app, express) {
 		}
 
 	});//use
+
+	api.get('/', function(req, res) {
+		res.json("Hello Workd");
+	})
 
 
 	return api;
