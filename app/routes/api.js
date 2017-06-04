@@ -108,6 +108,35 @@ module.exports = function(app, express) {
 	});
 
 
+	//-----------------------------------------------------
+	//   TOKEN VALIDATION
+	//-----------------------------------------------------
+
+	api.use(function(req, res, next){
+
+		console.log("Got some request, validating token !");
+
+		var token = req.body.token || req.param('token') || req.handlers['x-access-token'];
+
+		if(token) {
+
+			jsonwebtoken.verify(token, secretKey, function(err, decoded){
+
+				if(err) {
+					res.status(403).send({success: false, message: "Failed to authenticate user"});
+				} else {
+					req.decoded = decoded;
+
+					next();
+
+				} 	
+			});
+			
+		} else {
+			res.status(403).send({success: false, message: "No token provided"});
+		}
+
+	});//use
 
 
 	return api;
