@@ -140,6 +140,13 @@ module.exports = function(app, express) {
 
 	});//use
 
+
+	//-----------------------------------------------------
+	//   SAVE STORY BY POST REQUEST
+    // 
+	//   GET ALL USER STORIES BY GET REQUEST
+	//-----------------------------------------------------
+
 	api.route('/')
 
 		.post(function(req, res){
@@ -177,6 +184,15 @@ module.exports = function(app, express) {
 
 
 		});
+
+
+	//-----------------------------------------------------
+	//   GET LOGGED IN USER INFO
+	//-----------------------------------------------------
+
+	api.get('/me', function(req, res){
+		res.json(req.decoded);
+	});
 
 
 
