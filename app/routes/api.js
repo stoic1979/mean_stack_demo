@@ -112,6 +112,9 @@ module.exports = function(app, express) {
 
 	//-----------------------------------------------------
 	//   TOKEN VALIDATION
+	// 
+	//   This is middleware function with no mount path. 
+	//   The function is executed every time the app receives a request.
 	//-----------------------------------------------------
 
 	api.use(function(req, res, next){
