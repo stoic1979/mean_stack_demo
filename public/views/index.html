@@ -6,11 +6,22 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
   		<script type="text/javascript" src="js/bootstrap.min.js"></script>
  		<script type="text/javascript" src="js/angular.min.js"></script>
+ 		<script type="text/javascript" src="js/angular-route.min.js"></script>
+
+
+ 		<!-- SERVICES -->
+ 		<script type="text/javascript" src="app/services/authService.js"></script>
+
+ 		<!-- CONTROLLERS -->
+ 		<script type="text/javascript" src="app/controllers/mainController.js"></script>
+
+		<!-- ROUTES -->
+  		<script type="text/javascript" src="app/app.routes.js"></script>
+
   		<script type="text/javascript" src="app/app.js"></script>
 
 	</head>
 	<body>
-	<h1>Hello User Story</h1>
-	{{ 2 + 2 }}
+	   <div ng-view></div>
 	</body>
 </html>
