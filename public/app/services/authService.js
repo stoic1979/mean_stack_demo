@@ -46,6 +46,9 @@ angular.module("authService", [])
         }
     };//getUser
 
+    return authFactory;
+
+
 })//authFactory
 
 .factory('AuthToken', function($window){
@@ -64,6 +67,8 @@ angular.module("authService", [])
 	    	$window.localStorage.removeItem('token');
 	    }
 	};
+
+	return authTokenFactory;
 
 })//authTokenFactory
 
@@ -92,6 +97,6 @@ angular.module("authService", [])
 		return $q.reject(response);
 	};
 
-
+	return interceptorFactory;
 
 });// AuthInterceptor
