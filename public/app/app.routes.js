@@ -5,7 +5,9 @@ angular.module('appRoutes', ['ngRoute'])
 	$routeProvider
 
 		.when('/', {
-			templateUrl: 'views/pages/home.html'
+			templateUrl: 'views/pages/home.html',
+			controller: 'MainController', // this controller will be used in home.html page
+			controllerAs: 'main'          // this is a small-name/nickname for controller
 		})
 		.when('/login', {
 			templateUrl: 'views/pages/login.html'
@@ -13,6 +15,7 @@ angular.module('appRoutes', ['ngRoute'])
 		.when('/signup', {
 			templateUrl: 'views/pages/signup.html'
 		})
+		
 
 
     //FIXME: its not working

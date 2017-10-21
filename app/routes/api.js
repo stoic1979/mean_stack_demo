@@ -164,8 +164,11 @@ module.exports = function(app, express) {
 
 		.post(function(req, res){
 
+
+			console.log("[INFO] :: creating new story");
+
 			var story = new Story({
-				creator: req.decoded.id,
+				creator: req.decoded._id,
 				content: req.body.content
 			});
 
@@ -176,7 +179,7 @@ module.exports = function(app, express) {
 					return;
 				} 
 
-				res.json({message: "New Story Created !!!"});
+				res.json({message: "New Story Created !!!", story: story});
 
 			});
 
@@ -184,7 +187,9 @@ module.exports = function(app, express) {
 
 		.get(function(req, res){
 
-			Story.find( {creator: req.decoded.id}, function(err, stories) {
+			console.log("[INFO] :: getting stories for: " + req.decoded._id);
+
+			Story.find( {creator: req.decoded._id}, function(err, stories) {
 
 				if(err) {
 					res.send(err);
