@@ -11,12 +11,18 @@ angular.module("authService", [])
 
      	return $http.post('/api/login', {
      		username: username,
-     		passowrd: password
+     		password: password
      	})
-     	.success(function(data){
-             AuthToken.setToken(data.token);
+     	.then(function(response){
+     		 console.log("authFactory.login() got data: " + JSON.stringify(response.data) );
+             AuthToken.setToken(response.data.token);
              return data;
      	})
+     	.catch(function(data){
+
+     	});
+
+     	
 
     };//login
 
@@ -40,7 +46,9 @@ angular.module("authService", [])
     //-------------------------------------------------
 	authFactory.getUser = function() {
         if(AuthToken.getToken()) {
-        	return $http.get("/api/me");
+        	return $http.get("/api/me", 
+        		{headers: {'x-access-token': AuthToken.getToken()}}
+        	);
         } else {
         	return $q.reject({message: "User does not have a token!"});
         }
@@ -51,7 +59,7 @@ angular.module("authService", [])
 
 })//authFactory
 
-.factory('AuthToken', function($window){
+.factory('AuthToken', function($window){ 
 
 	var authTokenFactory = {};
 

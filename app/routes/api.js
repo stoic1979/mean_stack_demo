@@ -82,18 +82,23 @@ module.exports = function(app, express) {
 			username: req.body.username
 		}).select('password').exec(function(err, user) {
 
-			if(err) throw err;
-
+			if(err){
+			   console.log("[ERROR] login error: " + err);
+			   //throw err;
+			   res.send({err: err});
+			}
 
 			if(!user) {
 				res.send({ message: 'User does not exist !'});
 			} else if(user) {
+
 				var validPassword = user.comparePassword(req.body.password);
 
 				if(!validPassword) {
 					res.json({ message: 'Invalid Password !'});
 				} else {
 					// login ok
+
 					// create token
 					 var token = createToken(user);
 
@@ -121,7 +126,7 @@ module.exports = function(app, express) {
 
 		console.log("Got some request, validating token !");
 
-		var token = req.body.token || req.param('token') || req.headers['x-access-token'];
+		var token = req.body.token || req.params.token || req.headers['x-access-token'];
 
 		if(token) {
 
@@ -196,8 +201,6 @@ module.exports = function(app, express) {
 	api.get('/me', function(req, res){
 		res.json(req.decoded);
 	});
-
-
 
 
 	return api;
