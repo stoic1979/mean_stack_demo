@@ -1,0 +1,11 @@
+<div class="container" ng-controller="UserCreateController as ucc">
+	<div class="row">
+		<form method="post" ng-submit="ucc.signupUser()">
+	    	User: <input type="text" name="username" ng-model="ucc.userData.user"><br>
+			Username: <input type="text" name="username" ng-model="ucc.userData.username"><br>
+			Password: <input type="password" name="password" ng-model="ucc.userData.password"><br>
+			<button type="submit" class="btn btn-success">SIGN UP</button>
+
+		</form>
+	</div>
+</div>

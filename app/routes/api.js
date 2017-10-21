@@ -35,6 +35,8 @@ module.exports = function(app, express) {
 	//-----------------------------------------------------
 	api.post('/signup', function(req, res) {
 
+		console.log("signup user...");
+
 		var user = new User({
 			name: req.body.name,
 			username: req.body.username,

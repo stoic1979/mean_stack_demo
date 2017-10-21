@@ -10,6 +10,9 @@ angular.module('appRoutes', ['ngRoute'])
 		.when('/login', {
 			templateUrl: 'views/pages/login.html'
 		})
+		.when('/signup', {
+			templateUrl: 'views/pages/signup.html'
+		})
 
 
     //FIXME: its not working
