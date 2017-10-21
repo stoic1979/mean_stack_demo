@@ -139,6 +139,8 @@ module.exports = function(app, express) {
 				} else {
 					req.decoded = decoded;
 
+					console.log("decoded token: " + JSON.stringify(decoded));
+
 					next();
 
 				} 	
