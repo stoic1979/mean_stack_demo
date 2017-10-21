@@ -7,8 +7,10 @@ angular.module('storyCtrl', ['storyService'])
 	Story.all()
 	.then(function(response){
 		console.log("-- got stories: " + JSON.stringify(response.data));
-		vm.stories = response.data;
 
+		// show stories in reverse order of creation
+		// means, latest at top pos in list
+		vm.stories = response.data.slice().reverse();
 	});	
 
 	vm.createStory = function() {
@@ -25,7 +27,8 @@ angular.module('storyCtrl', ['storyService'])
 			console.log("story created: " + response.data.message);
 			console.log("story : " + response.data.story);
 
-			vm.stories.push(response.data.story);
+			// insert latest story in begining of array
+			vm.stories.unshift(response.data.story);
 		});
 
 	};//createStory
